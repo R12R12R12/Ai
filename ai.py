@@ -23,6 +23,7 @@ MathMind — Telegram-бот с математикой, фото-задачам�
 
 import asyncio
 import logging
+log = logging.getLogger("mathmind")
 import os
 import re
 import sqlite3
