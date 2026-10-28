@@ -44,11 +44,8 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
 # ========================== НАСТРОЙКИ ==========================
-BOT_TOKEN = os.getenv("9197441376:AAEds7jm3dp3arXQH8S-rqOebjWB-FDx39I", "").strip()
-ADMIN_IDS = {
-    int(x.strip()) for x in os.getenv("5796754554", "").split(",")
-    if x.strip().isdigit()
-}
+BOT_TOKEN = "9197441376:AAEds7jm3dp3arXQH8S-rqOebjWB-FDx39I "
+ADMIN_IDS = {5796754554}
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "2525")
 DB_PATH = os.getenv("DB_PATH", "mathmind.sqlite3")
 
