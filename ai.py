@@ -47,7 +47,7 @@ from aiogram.enums import ParseMode
 # ==================== НАСТРОЙКИ MATHMIND ====================
 
 # Telegram
-BOT_TOKEN = "9197441376:AAEds7jm3dp3arXQH8S-rqOebjWB-FDx39I"
+BOT_TOKEN = "9197441376:AAEnhDf1kDRfx-QAsqD8wDnQj9T0scwmb2k"
 
 # Администратор: укажи свой настоящий Telegram ID
 ADMIN_IDS = {5796754554}
