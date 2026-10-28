@@ -43,30 +43,52 @@ from aiogram.types import (
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
-# ========================== НАСТРОЙКИ ==========================
-BOT_TOKEN = "9197441376:AAEds7jm3dp3arXQH8S-rqOebjWB-FDx39I "
-ADMIN_IDS = {5796754554}
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "2525")
-DB_PATH = os.getenv("DB_PATH", "mathmind.sqlite3")
 
-# Тарифы: меняйте цены здесь. Валюта Telegram Stars — XTR.
+# ==================== НАСТРОЙКИ MATHMIND ====================
+
+# Telegram
+BOT_TOKEN = "9197441376:AAEds7jm3dp3arXQH8S-rqOebjWB-FDx39I"
+
+# Администратор: укажи свой настоящий Telegram ID
+ADMIN_IDS = {5796754554}
+
+# Пароль команды /admin
+ADMIN_PASSWORD = "2525"
+
+# База данных
+DB_PATH = "mathmind.sqlite3"
+
+# Лимиты бесплатной версии
+FREE_DAILY_LIMIT = 5
+
+# Максимальный размер фото: 8 МБ
+MAX_PHOTO_BYTES = 8 * 1024 * 1024
+
+# Язык Википедии: ru или en
+WIKIPEDIA_LANG = "ru"
+
+# Подписки в Telegram Stars
 TARIFFS = {
     "7":  {"days": 14,  "stars": 100, "title": "7 дней"},
     "30": {"days": 30, "stars": 300, "title": "30 дней"},
     "90": {"days": 90, "stars": 800, "title": "90 дней"},
 }
 
-# Бесплатные пользователи получают ограниченное число математических запросов в сутки.
-FREE_DAILY_LIMIT = 7
-MAX_PHOTO_BYTES = 8 * 1024 * 1024
-WIKIPEDIA_LANG = "ru"
-# ===============================================================
+# Проверка настроек
+BOT_TOKEN = BOT_TOKEN.strip()
 
-logging.basicConfig(level=logging.INFO)
-log = logging.getLogger("mathmind")
+if not BOT_TOKEN or "ВСТАВЬ_" in BOT_TOKEN or any(c.isspace() for c in BOT_TOKEN):
+    raise RuntimeError(
+        "Ошибка BOT_TOKEN: вставь настоящий токен от @BotFather без пробелов."
+    )
 
-if not BOT_TOKEN:
-    raise RuntimeError("Не задан BOT_TOKEN. Укажите переменную окружения BOT_TOKEN.")
+if not ADMIN_IDS or 123456789 in ADMIN_IDS:
+    raise RuntimeError(
+        "Ошибка ADMIN_IDS: укажи свой настоящий Telegram ID."
+    )
+
+# ============================================================
+
 
 bot = Bot(BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher()
