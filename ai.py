@@ -92,7 +92,7 @@ def _env_ids(name: str) -> set[int]:
 
 
 # --- Telegram -----------------------------------------------------------
-BOT_TOKEN = _env("9197441376:AAEnhDf1kDRfx-QAsqD8wDnQj9T0scwmb2k")                 # токен от @BotFather (только через окружение!)
+BOT_TOKEN = _env("9197441376:AAHDhrjW-C4H5qfTMPbAzB1ejXMyS6gwKmE")                 # токен от @BotFather (только через окружение!)
 ADMIN_IDS = _env_ids("5796754554")             # Telegram ID администраторов: "123456,789012"
 ADMIN_PASSWORD = _env("ADMIN_PASSWORD", "2525")  # пароль по умолчанию 2525 — СМЕНИТЕ на сервере
 ADMIN_SESSION_MINUTES = 60                    # сколько живёт вход в админ-панель
